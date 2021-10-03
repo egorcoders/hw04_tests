@@ -20,7 +20,6 @@ class AboutUrlsTests(TestCase):
                 response = self.guest_client.get(reverse(reverse_name))
                 self.assertEqual(response.status_code, 200)
 
-
     def test_about_urls_use_correct_templates(self):
         for template, reverse_name in self.templates_url_names.items():
             with self.subTest():
