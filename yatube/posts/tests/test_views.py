@@ -134,7 +134,7 @@ class PostsViewsTests(TestCase):
             with self.subTest(value=value):
                 context = response.context[value]
                 self.assertEqual(context, expected)
-        
+
         self.posts_check_all_fields(response.context['page_obj'][0])
         test_page = response.context['page_obj'][0]
         self.assertEqual(test_page, self.user.posts.all()[0])
