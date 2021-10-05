@@ -19,7 +19,7 @@ class PostsViewsTests(TestCase):
         )
 
         cls.post = Post.objects.create(
-            text='Тестовый текст поста Тестовый текст поста',
+            text='Привет!',
             author=cls.user,
             group=cls.group,
         )
@@ -36,6 +36,13 @@ class PostsViewsTests(TestCase):
         self.authorized_client = Client()
         self.authorized_client.force_login(self.user)
 
+    def posts_check_all_fields(self, post):
+        """Метод, проверяющий поля поста."""
+        with self.subTest(post=post):
+            self.assertEqual(post.text, self.post.text)
+            self.assertEqual(post.author, self.post.author)
+            self.assertEqual(post.group.id, self.post.group.id)
+
     def test_posts_pages_use_correct_template(self):
         """Проверка, использует ли адрес URL соответствующий шаблон."""
         for template, reverse_name in self.templates_pages_names.items():
@@ -51,6 +58,7 @@ class PostsViewsTests(TestCase):
         Появляется ли пост, при создании на главной странице.
         """
         response = self.authorized_client.get(reverse('posts:index'))
+        self.posts_check_all_fields(response.context['page_obj'][0])
         last_post = response.context['page_obj'][0]
         self.assertEqual(last_post, self.post)
 
@@ -68,6 +76,7 @@ class PostsViewsTests(TestCase):
             )
         )
         test_group = response.context['group']
+        self.posts_check_all_fields(response.context['page_obj'][0])
         test_post = str(response.context['page_obj'][0])
         self.assertEqual(test_group, self.group)
         self.assertEqual(test_post, str(self.post))
@@ -125,7 +134,8 @@ class PostsViewsTests(TestCase):
             with self.subTest(value=value):
                 context = response.context[value]
                 self.assertEqual(context, expected)
-
+        
+        self.posts_check_all_fields(response.context['page_obj'][0])
         test_page = response.context['page_obj'][0]
         self.assertEqual(test_page, self.user.posts.all()[0])
 
@@ -154,6 +164,7 @@ class PostsViewsTests(TestCase):
         ли он в другую группу.
         """
         response = self.authorized_client.get(reverse('posts:index'))
+        self.posts_check_all_fields(response.context['page_obj'][0])
         post = response.context['page_obj'][0]
         group = post.group
         self.assertEqual(group, self.group)
