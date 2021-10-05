@@ -41,9 +41,18 @@ class PostsUrlsTests(TestCase):
             'posts/post_create.html': reverse('posts:post_create')
         }
 
-        cls.templates_url_names = (
-            cls.templates_url_names_public | cls.templates_url_names_private
-        )
+        cls.templates_url_names = {
+            'posts/index.html': reverse('posts:index'),
+            'posts/group_list.html': reverse(
+                'posts:group_list',
+                kwargs={'slug': cls.group.slug},
+            ),
+            'posts/profile.html': reverse(
+                'posts:profile',
+                kwargs={'username': cls.author.username},
+            ),
+            'posts/post_create.html': reverse('posts:post_create'),
+        }
 
     def setUp(self):
         self.guest_client = Client()
