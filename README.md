@@ -6,7 +6,7 @@
 [![HTML5](https://img.shields.io/badge/-HTML5-464646?style=flat-square&logo=html5)](https://en.wikipedia.org/wiki/HTML5)
 [![CSS](https://img.shields.io/badge/-CSS-464646?style=flat-square&logo=css3)](https://en.wikipedia.org/wiki/CSS)
 
-Яндекс Практикум. Спринт 5. Итоговый проект. Покрытие тестами проекта Yatube v3: [hw03_forms](https://github.com/egorcoders/hw03_forms/):
+Яндекс Практикум. Спринт 5. Итоговый проект. Покрытие тестами проекта Yatube v2: [hw03_forms](https://github.com/egorcoders/hw03_forms/):
 
 ## Описание изменений
 
