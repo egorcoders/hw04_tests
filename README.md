@@ -44,63 +44,63 @@
 
 ## Установка
 
-Клонировать репозиторий:
+1. Клонировать репозиторий:
 
-```python
-git clone https://github.com/egorcoders/hw04_tests.git
-```
+   ```python
+   git clone https://github.com/egorcoders/hw04_tests.git
+   ```
 
-Перейти в папку с проектом:
+2. Перейти в папку с проектом:
 
-```python
-cd hw04_tests/
-```
+   ```python
+   cd hw04_tests/
+   ```
 
-Установить виртуальное окружение для проекта:
+3. Установить виртуальное окружение для проекта:
 
-```python
-python -m venv venv
-```
+   ```python
+   python -m venv venv
+   ```
 
-Активировать виртуальное окружение для проекта:
+4. Активировать виртуальное окружение для проекта:
 
-```python
-# для OS Lunix и MacOS
-source venv/bin/activate
+   ```python
+   # для OS Lunix и MacOS
+   source venv/bin/activate
 
-# для OS Windows
-source venv/Scripts/activate
-```
+   # для OS Windows
+   source venv/Scripts/activate
+   ```
 
-Установить зависимости:
+5. Установить зависимости:
 
-```python
-python3 -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+   ```python
+   python3 -m pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
 
-Выполнить миграции на уровне проекта:
+6. Выполнить миграции на уровне проекта:
 
-```python
-cd yatube
-python3 manage.py makemigrations
-python3 manage.py migrate
-```
+   ```python
+   cd yatube
+   python3 manage.py makemigrations
+   python3 manage.py migrate
+   ```
 
-Запустить проект локально:
+7. Запустить проект локально:
 
-```python
-python3 manage.py runserver
+   ```python
+   python3 manage.py runserver
 
-# адрес запущенного проекта
-http://127.0.0.1:8000
-```
+   # адрес запущенного проекта
+   http://127.0.0.1:8000
+   ```
 
-Зарегистирировать суперпользователя Django:
+8. Зарегистирировать суперпользователя Django:
 
-```python
-python3 manage.py createsuperuser
+   ```python
+   python3 manage.py createsuperuser
 
-# адрес панели администратора
-http://127.0.0.1:8000/admin
-```
+   # адрес панели администратора
+   http://127.0.0.1:8000/admin
+   ```
